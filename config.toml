@@ -1,5 +1,5 @@
 baseurl = "http://wwww.gratalis.com/"
-relativeurls = true
+relativeurls = false
 title = "Drew Coughlin"
 copyright = "&copy; 2017 Drew Coughlin"
 theme = "hugo-academic"
