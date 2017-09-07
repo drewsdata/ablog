@@ -1,6 +1,6 @@
 baseurl = "http://wwww.gratalis.com/"
 relativeurls = true
-title = "Blog"
+title = "Drew Coughlin"
 copyright = "&copy; 2017 Drew Coughlin"
 theme = "hugo-academic"
 enableEmoji = true
@@ -22,7 +22,7 @@ defaultContentLanguageInSubdir = false
 
 [params]
   name = "Drew Coughlin"
-  role = "Consultant"
+  role = "Data Analyst Consultant"
   organization = "Atmos Technology Partners"
   organization_url = ""
   avatar = "portrait.jpg"
