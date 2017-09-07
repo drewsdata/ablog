@@ -22,7 +22,7 @@ defaultContentLanguageInSubdir = false
 
 [params]
   name = "Drew Coughlin"
-  role = "Data Analyst Consultant"
+  role = "Data Analyst"
   organization = "Atmos Technology Partners"
   organization_url = ""
   avatar = "portrait.jpg"
