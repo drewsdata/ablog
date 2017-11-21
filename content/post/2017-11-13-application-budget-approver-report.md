@@ -1,5 +1,5 @@
 ---
-title: Application budget approver report
+title: Financial 'budget approver' report
 author: Drew Coughlin
 date: '2017-11-13'
 tags:
