@@ -33,28 +33,19 @@ emp_ID_List <- list()
 
 ### SQL CTE iteration generating reverse hierarchy for each emp_ID in the vector and append to list
 for (i in input_Emp_ID) {
-  get_Each_Emp_ID <- sqlQuery(dbCon,as.is=TRUE, paste0("
-                                                    WITH pathup (emp_ID, supervisor_ID)
-                                                    AS (
-                                                    SELECT
-                                                    emp_ID, supervisor_ID
-                                                    FROM
-                                                    dbo.emp_directory
-                                                    WHERE
+    get_Each_Emp_ID <- 
+                    sqlQuery(dbCon,as.is=TRUE, paste0("
+                    WITH pathup (emp_ID, supervisor_ID)
+                    AS (SELECT emp_ID, supervisor_ID
+                    FROM dbo.emp_directory
+                    WHERE emp_ID = ","'",i,"'","
                                                     
-                                                    emp_ID = ","'",i,"'","
-                                                    
-                                                    UNION ALL
-                                                    
-                                                    SELECT
-                                                    cd.emp_ID, cd.supervisor_ID
-                                                    FROM  dbo.emp_directory cd
-                                                    
-                                                    INNER JOIN pathup ON
-                                                    pathup.supervisor_ID = cd.emp_ID
-                                                    )
-                                                    select emp_ID from pathup"))
-  
+                    UNION ALL
+                    SELECT cd.emp_ID, cd.supervisor_ID
+                    FROM  dbo.emp_directory cd
+                    INNER JOIN pathup ON
+                    pathup.supervisor_ID = cd.emp_ID)
+                    select emp_ID from pathup"))
   
   get_Each_Emp_ID$emp_ID <- as.character(get_Each_Emp_ID$emp_ID)
   emp_ID_List <- append(emp_ID_List,get_Each_Emp_ID)
@@ -67,7 +58,7 @@ odbcClose(dbCon)
 ### Create data frame from the list values
 budget_Approver_Emp_ID <- rbind.fill(lapply(emp_ID_List,function(y){as.data.frame(t(y),stringsAsFactors=FALSE)}))
 
-### Rename data frame columns to match depth reporting hierarchy depth level
+### Rename data frame columns to match reporting hierarchy depth level
 empDFnames <- c("empBase","empS1","empS2","empS3","empS4","empS5")
 names(budget_Approver_Emp_ID) <- empDFnames
 
