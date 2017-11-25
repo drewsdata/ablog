@@ -14,7 +14,7 @@ slug: analytics-solutions-for-all
 
 Underlying report data comes from a Google Sheet updated nightly with data from a Go program I wrote using Google's Admin SDK API for Google Drive activity [reporting](https://developers.google.com/admin-sdk/reports/v1/guides/manage-audit-drive).  I massage that data in R after extracting it with the Go program and before pushing it to Google Sheets using the extremely useful [googlesheets](https://cran.r-project.org/web/packages/googlesheets/) package.  The Google Data Studio report I designed and built does the rest and satisfies the client's basic needs for analytics on their content stored on Google Drive and served on their Google site.
 
-There are several parts to this overall solution and it took a while to fully complete mostly because it was my first time writing a program in the Go language.  This is just the R script that tidies up the data and appends the Google Sheet.  
+There are several parts to this overall solution and it took a while to fully complete mostly because it was my first time writing a program in the Go language.  This is just the R script that cleans the data and appends it to the Google Sheet.  
 
 ```r
 library(dplyr)
