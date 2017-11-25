@@ -2,16 +2,17 @@
 title: Reverse corporate hierarchy API with SQL and the R plumber package
 author: Drew Coughlin
 date: '2017-04-04'
-image: 'hierarchy_api_plumber.jpg'
 tags:
-  - SQL
   - API
+  - R
+  - SQL
+image: hierarchy_api_plumber.jpg
 slug: reverse-corporate-hierarchy-api-with-sql-and-the-r-plumber-package
 ---
 
-Using SQL common table expressions (CTE) to build corporate hierachy reports is relatively straightforward and a popular use case for SQL CTEs. I built an oft-requested report in Shiny that returns a client's top down hierarchy based on user input of an employee ID that returns the results in a Shiny data table. The Shiny app uses the [squr](https://github.com/smbache/squr) and [RODBC](https://cran.r-project.org/web/packages/RODBC/index.html) pacakges to call the SQL script. 
+Using recursive SQL common table expressions (CTE) to build corporate hierachy reports is [well documented] (https://technet.microsoft.com/en-us/library/ms186243(v=sql.105).aspx) use case for SQL CTE's. I leveraged a SQL CTE to build a Shiny data table report that returns a client's top down hierarchy based on user selection of an employee ID. The Shiny app uses the [squr](https://github.com/smbache/squr) and [RODBC](https://cran.r-project.org/web/packages/RODBC/index.html) pacakges to call the SQL script. 
 
-That report was useful but you never really know what someone wants until they ask.  After announcing its availability, I received a request from another developer asking if I could return the 'reverse hiearchy' path as a REST API endpoint given an employee ID as input.  They wanted me to return a particular JSON string format starting from the submitted employee ID, up to their direct manager's employee ID, etc. all the way up to the top of the organization.  I came across a SQL CTE example that sent me in the right direction with the underlying SQL query.  Then I remembered reading about the [plumber](https://cran.r-project.org/web/packages/plumber/index.html) package and from there it was just a matter of assembling the parts.  This was internal reporting of non-sensitive data so API restriction and security requirements were minimal.  Note, this example is based on a plumber package version before the 0.4x update which introduced major changes.
+That report was useful but you never really know what someone wants until they ask.  After announcing its availability, I received a request from another developer asking if I could return the 'reverse hiearchy' path as a REST API endpoint given an employee ID as input.  They wanted me to return a particular JSON string format starting from the submitted employee ID up to their direct manager's employee ID and so on all the way up to the top of the organization.  I came across a SQL CTE example that sent me in the right direction with the underlying SQL query.  Then I remembered reading about the [plumber](https://cran.r-project.org/web/packages/plumber/index.html) package and from there it was just a matter of assembling the parts.  This was internal reporting of non-sensitive data so API restriction and security requirements were minimal.  Note, this example is based on a plumber package version prior to the 0.4x update which introduced major changes.
 
 The following two scripts illustrate getting the data then starting the endpoint that listens for requests and serves the data at http://localhost:9900/eidup?eidget=00012 where '00012' is the employee ID from which you would like the path upwards.  Data returned will be in a format similar to:
 ```r
