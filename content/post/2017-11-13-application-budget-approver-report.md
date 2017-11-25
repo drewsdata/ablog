@@ -24,16 +24,16 @@ library(dplyr)
 
 dbCon <- RODBC::odbcConnect("dbDSN")
 
-### Get a character vector of all non-terminated employee IDs from the database
+# Get a character vector of all non-terminated employee IDs from the database
 input_Emp_ID <- sqlQuery(dbCon,as.is=TRUE, "select emp_ID from emp_directory
                 where [status] !='T'")
 input_Emp_ID <- as.vector(input_Emp_ID$emp_ID)
 
-### Create list placeholder for data
+# Create list placeholder for data
 emp_ID_List <- list()
 
-### SQL CTE iteration generating reverse hierarchy for each emp_ID in the vector
-### and append to list
+# SQL CTE iteration generating reverse hierarchy for each emp_ID 
+# in the input_Emp_ID vector - append results to the list placeholder
 for (i in input_Emp_ID) {
   get_Each_Emp_ID <- 
                     sqlQuery(dbCon,as.is=TRUE, paste0("
@@ -57,15 +57,15 @@ for (i in input_Emp_ID) {
 
 odbcClose(dbCon)
 
-### Create data frame from the list values
+# Create data frame from the list values
 budget_Approver_Emp_ID <- 
   rbind.fill(lapply(emp_ID_List,function(y){as.data.frame(t(y),stringsAsFactors=FALSE)}))
 
-### Rename data frame columns to match reporting hierarchy depth level
+# Rename data frame columns to match reporting hierarchy depth level
 empDFnames <- c("empBase","empS1","empS2","empS3","empS4","empS5")
 names(budget_Approver_Emp_ID) <- empDFnames
 
-### Upload data frame to database for further  processing
+# Upload data frame to database for further  processing
 dbCon <- odbcConnect("dbDSN")
 sqlDrop(dbCon, "budget_Approver_Emp_ID", errors = FALSE)
 sqlSave(dbCon, `budget_Approver_Emp_ID`, tablename = "budget_Approver_Emp_ID", 
