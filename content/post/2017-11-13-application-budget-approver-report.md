@@ -7,7 +7,6 @@ tags:
   - RStudio
   - Shiny
   - SQL
-<<<<<<< HEAD
 image: approve.jpg
 slug: application-budget-approver-report
 ---
