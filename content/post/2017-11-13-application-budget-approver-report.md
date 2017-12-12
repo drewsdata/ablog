@@ -7,6 +7,7 @@ tags:
   - RStudio
   - Shiny
   - SQL
+<<<<<<< HEAD
 image: approve.jpg
 slug: application-budget-approver-report
 ---
@@ -17,6 +18,18 @@ End users could upload a software vendor inventory text file in the existing Shi
 The new request required extending the Shiny data table report with a 'budget approver' value for each employee record based on the client's business rules and data in their corporate directory. I fulfilled this requirement by extending and merging the hierarchy report components into the text file upload and merge report. Now when the end user uploads the software vendor inventory text file the Shiny application will iterate through each employee record's key attribute using the reverse hiearchy logic and extend the data table to return the 'budget approver' value for each record.
 
 This small R code section illustrates iterating over the employee records to generate the entire possible budget approver list via SQL. The full solution includes a subsequent series of SQL case statements implementing the business logic determining the budget approver for each employee record based on the approver's hierarchical relationship with the employee.
+=======
+slug: application-budget-approver-report
+---
+Some projects evolve naturally by combining previous efforts into something new and useful.  This happened recently when I fullfiled a client request by extending an existing [RSudio Shiny based report] (https://www.gratalis.com/post/shiny-file-upload-and-merge/) using what initially seemed like unrelated, separate components.
+
+End users could upload a software vendor inventory text file in the existing Shiny application.  Key attributes in that file were joined across several database views and a Shiny data table report returned the aggregated data to the user. I created the database views using data from several sources including Okta, Active Directory and the client's corporate directory.  I had also built separate [hiearchy and reverse hierarchy reports and API's] (https://www.gratalis.com/post/reverse-corporate-hierarchy-api-with-sql-and-the-r-plumber-package/) that returned hierarchy information for individual employee records.
+
+The new request required extending the Shiny data table report with a 'budget approver' value for each employee record based on the client's business rules and data in their corporate directory.  I fulfilled this requirement by extending and merging the hierarchy report components into the text file upload and merge report.  Now when the end user uploads the software vendor inventory text file the Shiny application will iterate through each employee record's key attribute using the reverse hiearchy logic and extend the data table to return the 'budget approver' value for each record.
+
+This small R code section illustrates iterating over the employee records to generate the entire possible budget approver list via SQL.  The full solution includes a subsequent series of SQL case statements implementing the business logic determining the budget approver for each employee record based on the approver's hierarchical relationship with the employee.
+
+>>>>>>> 0c7827c34696965e04eb3b20bb9c21278768e927
 ```r
 library(RODBC)
 library(plyr)
