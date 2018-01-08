@@ -3,6 +3,7 @@ relativeurls = false
 title = "Drew Coughlin"
 copyright = "&copy; 2017 Drew Coughlin"
 theme = "hugo-academic"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 enableEmoji = true
 footnotereturnlinkcontents = "<sup>^</sup>"
 # publishDir = "https://github.com/gratalis/blog"
