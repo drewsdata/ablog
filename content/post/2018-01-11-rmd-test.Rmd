@@ -1,7 +1,7 @@
 ---
 title: Rmd Test
 author: Drew Coughlin
-date: '2018-01-11'
+date: '2017-01-11'
 slug: rmd-test
 categories:
   - Test
