@@ -1,13 +1,11 @@
 ---
-title: Rmd Test
-author: Drew Coughlin
+title: "Rmd Test"
+author: "Drew Coughlin"
 date: '2017-01-11'
-slug: rmd-test
-categories:
-  - Test
-tags:
-  - Test
 draft: yes
+slug: rmd-test
+tags: Test
+categories: Test
 ---
 
 
