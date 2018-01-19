@@ -1,0 +1,14 @@
+---
+title: Test Rmd
+author: Drew Coughlin
+date: '2017-01-19'
+slug: test-rmd
+categories:
+  - Test
+tags:
+  - Test
+draft: yes
+---
+```{r cool-plot, fig.width='80%', fig.cap='A cool plot.'}
+plot(cars, pch = 20)  # not really cool
+```
