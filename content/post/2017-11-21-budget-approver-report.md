@@ -10,8 +10,6 @@ tags:
   - Shiny
   - SQL
 ---
-test edit 
-
 Some projects evolve naturally by combining previous efforts into something new and useful.  This happened recently when I fullfiled a client request by extending an existing [RStudio Shiny application] (https://www.gratalis.com/post/shiny-file-upload-and-merge/) using what initially seemed like unrelated, separate components.
 
 End users could upload a software vendor inventory text file in the existing Shiny application.  Key attributes in that file were joined across several database views and a Shiny data table report returned the aggregated data to the user. I created the database views using data from several sources including Okta, Active Directory and the client's corporate directory.  I had also built separate [hierarchy and reverse hierarchy reports and API's] (https://www.gratalis.com/post/reverse-corporate-hierarchy-api-with-sql-and-the-r-plumber-package/) that returned hierarchy information for individual employee records.
@@ -20,7 +18,7 @@ The new request required extending the Shiny data table report with a 'budget ap
 
 This small R code section illustrates iterating over the employee records to generate the entire possible budget approver list via SQL.  The full solution includes a subsequent series of SQL case statements implementing the business logic determining the budget approver for each employee record based on the approver's hierarchical relationship with the employee.
 
-{{% mdshortcode %}}
+
 ```r
 library(RODBC)
 library(plyr)
@@ -76,4 +74,4 @@ sqlSave(dbCon, `budget_Approver_Emp_ID`, tablename = "budget_Approver_Emp_ID",
   append = FALSE, rownames = FALSE,
   safer=FALSE)
 ```
-{{/% mdshortcode %}}
+
