@@ -20,6 +20,7 @@ defaultContentLanguageInSubdir = false
 
 [blackfriday]
   hrefTargetBlank = true
+  extensions = ["hardLineBreak"]
 
 [params]
   name = "Drew Coughlin"
