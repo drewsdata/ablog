@@ -9,6 +9,9 @@ tags:
   - RStudio
   - Shiny
   - SQL
+output: 
+  html_document:
+    css: styles.css
 ---
 Some projects evolve naturally by combining previous efforts into something new and useful.  This happened recently when I fullfiled a client request by extending an existing [RStudio Shiny application] (https://www.gratalis.com/post/shiny-file-upload-and-merge/) using what initially seemed like unrelated, separate components.
 
