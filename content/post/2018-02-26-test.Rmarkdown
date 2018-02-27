@@ -19,7 +19,7 @@ The new request required extending the Shiny data table report with a 'budget ap
 This small R code section illustrates iterating over the employee records to generate the entire possible budget approver list via SQL.  The full solution includes a subsequent series of SQL case statements implementing the business logic determining the budget approver for each employee record based on the approver's hierarchical relationship with the employee.
 
 
-```r
+```r[r]
 library(RODBC)
 library(plyr)
 library(dplyr)
