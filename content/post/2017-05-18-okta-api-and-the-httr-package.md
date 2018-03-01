@@ -57,20 +57,19 @@ library(httr)
     regmatches(nextHead, gregexpr('(?<=after=).*?(?=&limit)',
     nextHead, perl=T))[[1]]
   
-  # Create URL
+  # Create URL and GET requestt
     oktaURLnext <- paste0(nextURL,parsenext,limitURL)
   
     initGet <- httr::GET(oktaURLnext,
                           config = (
                             add_headers(Authorization = "SSWS <Okta API key>")))
     initHeaders <- as.character(unlist(initGet$all_headers))
+    
+  # Append the content list placeholder
     initContent <- append(initContent,content(initGet))
 
     next
    } 
-
-# Append the content list placeholder
-  initContent <- append(initContent,content(initGet))
 
 # Get a data frame
   initContent <- toJSON(initContent, simplifyDataFrame = TRUE, flatten = TRUE, 
