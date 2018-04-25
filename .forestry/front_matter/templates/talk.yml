@@ -1,0 +1,80 @@
+---
+hide_body: false
+is_partial: false
+fields:
+- name: title
+  label: Title
+  type: text
+  hidden: false
+  default: ''
+- name: abstract
+  label: Abstract
+  type: text
+  hidden: false
+  default: ''
+- name: abstract_short
+  label: Abstract short
+  type: text
+  hidden: false
+  default: ''
+- name: event
+  label: Event
+  type: text
+  hidden: false
+  default: ''
+- name: event_url
+  label: Event url
+  type: text
+  hidden: false
+  default: ''
+- name: location
+  label: Location
+  type: text
+  hidden: false
+  default: ''
+- name: selected
+  label: Selected
+  type: boolean
+  hidden: false
+  default: false
+- name: math
+  label: Math
+  type: boolean
+  hidden: false
+  default: false
+- name: highlight
+  label: Highlight
+  type: boolean
+  hidden: false
+  default: true
+- name: url_pdf
+  label: Url pdf
+  type: text
+  hidden: false
+  default: ''
+- name: url_slides
+  label: Url slides
+  type: text
+  hidden: false
+  default: ''
+- name: url_video
+  label: Url video
+  type: text
+  hidden: false
+  default: ''
+- name: header
+  label: Header
+  type: field_group
+  fields:
+  - name: image
+    label: Image
+    type: text
+    hidden: false
+    default: ''
+  - name: caption
+    label: Caption
+    type: text
+    hidden: false
+    default: ''
+  hidden: false
+  default: 

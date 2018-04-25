@@ -1,0 +1,102 @@
+---
+hide_body: false
+is_partial: false
+fields:
+- name: authors
+  label: Authors
+  type: list
+  hidden: false
+  default:
+  - ''
+- name: publication_types
+  label: Publication types
+  type: tag_list
+  hidden: false
+  default:
+  - '0'
+- name: publication
+  label: Publication
+  type: text
+  hidden: false
+  default: ''
+- name: publication_short
+  label: Publication short
+  type: text
+  hidden: false
+  default: ''
+- name: abstract
+  label: Abstract
+  type: text
+  hidden: false
+  default: ''
+- name: abstract_short
+  label: Abstract short
+  type: text
+  hidden: false
+  default: ''
+- name: math
+  label: Math
+  type: boolean
+  hidden: false
+  default: false
+- name: highlight
+  label: Highlight
+  type: boolean
+  hidden: false
+  default: true
+- name: image_preview
+  label: Image preview
+  type: text
+  hidden: false
+  default: ''
+- name: selected
+  label: Selected
+  type: boolean
+  hidden: false
+  default: false
+- name: url_pdf
+  label: Url pdf
+  type: text
+  hidden: false
+  default: ''
+- name: url_code
+  label: Url code
+  type: text
+  hidden: false
+  default: ''
+- name: url_dataset
+  label: Url dataset
+  type: text
+  hidden: false
+  default: ''
+- name: url_project
+  label: Url project
+  type: text
+  hidden: false
+  default: ''
+- name: url_slides
+  label: Url slides
+  type: text
+  hidden: false
+  default: ''
+- name: url_video
+  label: Url video
+  type: text
+  hidden: false
+  default: ''
+- name: header
+  label: Header
+  type: field_group
+  fields:
+  - name: image
+    label: Image
+    type: text
+    hidden: false
+    default: ''
+  - name: caption
+    label: Caption
+    type: text
+    hidden: false
+    default: ''
+  hidden: false
+  default: 

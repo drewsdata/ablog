@@ -1,0 +1,82 @@
+---
+hide_body: false
+is_partial: false
+fields:
+- name: date
+  label: Date
+  type: datetime
+  hidden: false
+  default: ''
+- name: widget
+  label: Widget
+  type: text
+  hidden: false
+  default: ''
+- name: weight
+  label: Weight
+  type: text
+  hidden: false
+  default: 100
+- name: interests
+  label: Interests
+  type: field_group
+  fields:
+  - name: interests
+    label: Interests
+    type: list
+    hidden: false
+    default: ''
+  hidden: false
+  default: ''
+- name: education
+  label: Education
+  type: field_group
+  fields:
+  - name: courses
+    label: Courses
+    type: field_group_list
+    fields:
+    - name: course
+      label: Course
+      type: text
+      hidden: false
+      default: ''
+    - name: institution
+      label: Institution
+      type: text
+      hidden: false
+      default: ''
+    hidden: false
+    default: ''
+  hidden: false
+  default: ''
+- name: title
+  label: Title
+  type: text
+  hidden: false
+  default: ''
+- name: type
+  label: Type
+  type: text
+  hidden: false
+  default: ''
+- name: subtitle
+  label: Subtitle
+  type: text
+  hidden: false
+  default: ''
+- name: autolink
+  label: Autolink
+  type: boolean
+  hidden: false
+  default: ''
+- name: tags
+  label: Tags
+  type: tag_list
+  hidden: false
+  default: ''
+- name: count
+  label: Count
+  type: text
+  hidden: false
+  default: ''
