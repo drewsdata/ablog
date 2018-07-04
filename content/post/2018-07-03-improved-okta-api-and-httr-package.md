@@ -28,7 +28,7 @@ library(stringr)
 # Okta API token.  You need to secure this - DO NOT store in your script. 
 # There are various ways of doing it:
 # https://cran.r-project.org/web/packages/httr/vignettes/secrets.html
-apiKey <- as.character("SSWS <API Token>")
+apiKey <- "SSWS <API Token>"
 
 # Initial URL construction for first URL call
 appID <- "<Okta application ID of interest>"
