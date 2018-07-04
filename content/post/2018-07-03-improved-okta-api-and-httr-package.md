@@ -23,7 +23,6 @@ library(httr)
 library(jsonlite)
 library(dplyr)
 library(stringr)
-library(readr)
 
 
 # Okta API token.  You need to secure this - DO NOT store in your script. 
@@ -32,8 +31,8 @@ library(readr)
 apiKey <- as.character("SSWS <API Token>")
 
 # Initial URL construction for first URL call
-appID <- as.character("<Okta application ID of interest>") 
-apiLimit <- as.character("200")
+appID <- "<Okta application ID of interest>"
+apiLimit <- "200"
 initUrl <- paste0("https://<your Okta domain>.okta.com/api/v1/apps/",appID,"/users?limit=",apiLimit)
 
 # Pass initial URL to get first batch
@@ -46,13 +45,13 @@ initGet <- httr::GET(initUrl,
 # Get the content into a data frame
 initContent <- fromJSON(httr::content(initGet, as = "text"), flatten = TRUE)
 
-# Check headers for "next" cursor URL - means we have more
+# Check headers for "next" cursor URL - more records available if it exists
 isNextHead <- initGet$headers[grepl('"next\"', initGet$headers)]
 
 # Extract 'next' URL assuming it exists
 getNextHead <- str_extract(isNextHead,"(?<=<).*(?=>)")
 
-# If there is a 'next' (paginated cursor) URL, repeat til there isn't
+# If there is a 'next' (paginated cursor) URL, repeat GET requests til there isn't
 if(length(isNextHead) > 0)
   repeat{
   
@@ -66,13 +65,13 @@ if(length(isNextHead) > 0)
     # Add to content data frame
     initContent <- bind_rows(initContent, fromJSON(httr::content(initGet, as = "text"), flatten = TRUE))
     
-    # Check headers for "next" cursor URL - means we have more
+    # Check headers for "next" cursor URL - more records available if it exists
     isNextHead <- initGet$headers[grepl('"next\"', initGet$headers)]
     
     # Extract 'next' URL assuming it exists
     getNextHead <- str_extract(isNextHead,"(?<=<).*(?=>)")
     
-    # Check for break condition
+    # Check for break condition - if 'next' not found in headers then all records retrieved
     if(length(isNextHead) == 0){
       break
     }
