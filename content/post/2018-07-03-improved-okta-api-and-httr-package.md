@@ -16,7 +16,7 @@ math: no
 ---
 I finally had some time to revist and improve a [past project](https://www.gratalis.com/post/okta-api-and-the-httr-package/).  This example illustrates retrieving all Okta user profiles assigned to a given application in Okta.  As outlined in my earlier post, Okta limits the number of records returned depending on the API request so follow their cursor based pagination URLs to return all records if the number exceeds the API limit.  
 
-There are many different reasons why you might want to retrieve this data.  You can extend this idea and retrieve even more user profile details by simply using the [list users API request](https://developer.okta.com/docs/api/resources/users#list-all-users) then joining on the 'id' field in both datasets.
+There are many reasons why you might want to retrieve this data.  You can modify this script and retrieve even more user profile details by using the [list users API request](https://developer.okta.com/docs/api/resources/users#list-all-users) then joining the results on the 'id' field in each data frame.
 
 ```r
 library(httr)
