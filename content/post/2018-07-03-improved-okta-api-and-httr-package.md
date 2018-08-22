@@ -8,7 +8,7 @@ tags:
   - Okta
   - API
   - httr
-  image: 'refactor.png'
+image: 'refactor.png'
 header:
   caption: ''
   image: ''
