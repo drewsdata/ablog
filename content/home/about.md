@@ -29,4 +29,4 @@ weight = 1
 +++
 
 # Biography
-I enjoy helping people turn data into useful information.
+I help people manage and derive meaning from data.
