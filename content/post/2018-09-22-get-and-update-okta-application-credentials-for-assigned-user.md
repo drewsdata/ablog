@@ -39,7 +39,7 @@ initGet <- httr::GET(appUserURL,
                      )
 
 # Retrieve the retuned content 
-logData <- fromJSON(httr::content(initGet, as = "text"), flatten = TRUE)
+initData <- fromJSON(httr::content(initGet, as = "text"), flatten = TRUE)
 
 # Retrieve the current 'userName' credential and define the desired 'userName' credential
 currentAppCredential <- logData$credentials$userName
