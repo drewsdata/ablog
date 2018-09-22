@@ -2,14 +2,14 @@
 title: Get and Update Okta Application Credentials for Assigned User
 author: Drew Coughlin
 date: '2018-09-22'
-slug: get-and-update-okta-application-credentials-for-assigned-user
-categories: []
 tags:
   - API
   - httr
   - Okta
   - R
-image: 'post_okta_update.png'
+  - jsonlite
+slug: get-and-update-okta-application-credentials-for-assigned-user
+image: post_okta_update.png
 header:
   caption: ''
   image: ''
