@@ -42,7 +42,7 @@ initGet <- httr::GET(appUserURL,
 initData <- fromJSON(httr::content(initGet, as = "text"), flatten = TRUE)
 
 # Retrieve the current 'userName' credential and define the desired 'userName' credential
-currentAppCredential <- logData$credentials$userName
+currentAppCredential <- initData$credentials$userName
 correctAppCredential <- "<credential to assign>"
 
 # Test the current 'userName' and assign the desired 'userName' if they differ
