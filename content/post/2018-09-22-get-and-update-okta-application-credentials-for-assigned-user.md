@@ -18,7 +18,7 @@ math: no
 ---
 Much of my work lately involves interacting with the Okta API.  It is a well documented API for those familiar with RESTful API development in their language of choice.  If that doesn't describe you (yet) then hopefully this post will help those of you with some R programming knowledge.
 
-Scenario:  You want to find out which credential a particular Okta user profile is using when accessing a specfic Okta application and change a credential value (in this example 'userName') to something else if the current value doesn't match the desired value.  Obviously, you can log into the Okta administration interface then find, view and update the information there.  But what if you want to monitor the assigned credential value and change it if some event overwrites the existing value or you wish to make this update programmatically for some other reason?  This is exactly what the following R script will do for you.
+Scenario:  You want to find out which credential a particular Okta user profile is using when accessing a specfic Okta application and change a credential value (in this example 'userName') if the current value doesn't match the desired value.  Obviously, you can log into the Okta administration interface then find, view and update the information there.  But what if you want to monitor the assigned credential value and change it if some event overwrites the existing value or you wish to make this update programmatically for some other reason?  This is exactly what the following R script will do for you.
 
 ```r
 library(jsonlite)
