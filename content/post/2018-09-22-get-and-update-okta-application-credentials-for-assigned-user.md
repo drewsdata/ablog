@@ -5,9 +5,9 @@ date: '2018-09-22'
 tags:
   - API
   - httr
+  - jsonlite
   - Okta
   - R
-  - jsonlite
 slug: get-and-update-okta-application-credentials-for-assigned-user
 image: post_okta_update.png
 header:
@@ -33,10 +33,7 @@ oToken <- "<your Okta API token string>"
 appUserURL <- "https://<your okta domain>.okta.com/api/v1/apps/<the Okta app ID>/users/<the Okta user ID>"
 
 # Make the API call 
-initGet <- httr::GET(appUserURL,
-                     config = (
-                       add_headers(Authorization = oToken))
-                     )
+initGet <- httr::GET(appUserURL,config = (add_headers(Authorization = oToken)))
 
 # Retrieve the retuned content 
 initData <- fromJSON(httr::content(initGet, as = "text"), flatten = TRUE)
@@ -48,16 +45,13 @@ correctAppCredential <- "<credential to assign>"
 # Test the current 'userName' and assign the desired 'userName' if they differ
 if (currentAppCredential == correctAppCredential) {
   print(paste0("The current credential is ",currentAppCredential,".  This is correct so no action taken."))
-  
 } else {
-  print(paste0("The current credential is ",currentAppCredential,".  This is incorrect so let's update it with ", correctAppCredential))
+  print(paste0("The current credential is ",currentAppCredential,".  This is incorrect so let's update it with ",           correctAppCredential))
   
   okta_post_body <- list(credentials = c(list(userName = correctAppCredential)))
   httr::POST(url = appUserURL,
-             config = (
-               add_headers(Authorization = oToken)),
+             config = (add_headers(Authorization = oToken)),
              body = okta_post_body, encode = "json",
-             verbose(data_in = TRUE, info = TRUE)
-             )
-  }
+             verbose(data_in = TRUE, info = TRUE))
+}
   ```
