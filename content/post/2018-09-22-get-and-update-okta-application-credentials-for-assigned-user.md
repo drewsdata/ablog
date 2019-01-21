@@ -44,9 +44,11 @@ correctAppCredential <- "<credential to assign>"
 
 # Test the current 'userName' and assign the desired 'userName' if they differ
 if (currentAppCredential == correctAppCredential) {
-  print(paste0("The current credential is ",currentAppCredential,".  This is correct so no action taken."))
+  print(paste0("The current credential is ",currentAppCredential,".  
+  This is correct so no action taken."))
 } else {
-  print(paste0("The current credential is ",currentAppCredential,".  This is incorrect so let's update it with ",           correctAppCredential))
+  print(paste0("The current credential is ",currentAppCredential,".  
+  This is incorrect so let's update it with ", correctAppCredential))
   
   okta_post_body <- list(credentials = c(list(userName = correctAppCredential)))
   httr::POST(url = appUserURL,
