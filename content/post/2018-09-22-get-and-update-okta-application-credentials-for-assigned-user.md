@@ -35,7 +35,7 @@ appUserURL <- "https://<your okta domain>.okta.com/api/v1/apps/<the Okta app ID>
 # Make the API call 
 initGet <- httr::GET(appUserURL,config = (add_headers(Authorization = oToken)))
 
-# Retrieve the retuned content 
+# Retrieve content 
 initData <- fromJSON(httr::content(initGet, as = "text"), flatten = TRUE)
 
 # Retrieve the current 'userName' credential and define the desired 'userName' credential
