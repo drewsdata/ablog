@@ -46,7 +46,7 @@ library(tidyr)
 
   # Construct the API call to get removal events from the given Okta app
   okta_app_users_removed <- paste0("https://<yourdomain>.okta.com/api/v1/logs?since=",
-  since_date,"T00:00:00.000Z&filter=event_type+eq+%22application.user_membership.remove%22+and+target.id+eq+",okta_app_id)
+  since_date,"T00:00:00.000Z&filter=event_type+eq+%22application.user_membership.remove%22+and+target.id+eq+%22",okta_app_id,"%22")
 
   # Send the request and get the content
   get_removed <- GET(okta_app_users_removed,
@@ -59,7 +59,7 @@ library(tidyr)
   app_content_to_json <- toJSON(app_content, simplifyDataFrame = TRUE, flatten = TRUE, recursive = TRUE)
   json_from_app_content <- fromJSON(app_content_to_json, simplifyDataFrame = TRUE, flatten = TRUE)
   
-  # Dataframe of lists filtered for just the row we need
+  # data frame of lists filtered for rows we need and key addition for later join
   app_uname_rem <- unnest(json_from_app_content, target) %>% filter(type == 'AppUser') %>% unique()
   app_uname_rem <- as.data.frame(app_uname_rem)
   app_uname_rem$uKey <- as.character(seq.int(nrow(app_uname_rem)))
