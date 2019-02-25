@@ -38,7 +38,7 @@ library(jsonlite)
 library(dplyr)
 library(tidyr)
 
-  # Set date range for filtering log data, in this case the past 10 days
+  # Set date range for filtering log data, the past 10 days in this case
   since_date <- format((Sys.Date() - 10),"%Y-%m-%d")
 
   # Set Okta application of interest to retrieve target log event data
