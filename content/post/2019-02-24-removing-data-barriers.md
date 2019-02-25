@@ -2,16 +2,16 @@
 title: Removing Data Barriers
 author: Drew Coughlin
 date: '2019-02-24'
-slug: removing-data-barriers
-categories: []
 tags:
-  - httr
-  - R
-  - Okta
-  - Log
   - gmailr
   - htmlTable
+  - httr
   - jsonlite
+  - Log
+  - Okta
+  - R
+  - dplyr
+slug: removing-data-barriers
 header:
   caption: ''
   image: ''
@@ -33,6 +33,7 @@ Once data is retrieved via the Okta API, it’s just a matter of a shaping and f
 ```r
 library(httr)
 library(jsonlite)
+library(dplyr)
 library(tidyr)
 
   # Set date range for filtering log data, in this case the past 10 days
