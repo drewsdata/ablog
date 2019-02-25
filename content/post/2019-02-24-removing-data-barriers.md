@@ -45,7 +45,7 @@ library(tidyr)
   okta_app_id <- as.character(<your Okta application value>)
 
   # Construct the API call to get removal events from the given Okta app
-  okta_app_users_removed <- paste0("https://<yourdomain>.okta.com/api/v1/logs?since=",since_date,"T00:00:00.000Z&filter=event_type+eq+%22application.user_membership.remove%22+an   d+target.id+eq+",okta_app_id)
+  okta_app_users_removed <- paste0("https://<yourdomain>.okta.com/api/v1/logs?since=",since_date,"T00:00:00.000Z&filter=event_type+eq+%22applic   ation.user_membership.remove%22+and+target.id+eq+",okta_app_id)
 
   # Send the request and get the content
   get_removed <- GET(okta_app_users_removed,
