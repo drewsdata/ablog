@@ -22,7 +22,7 @@ Okta continuously improves administration features.  Recent additions include ne
 
 While the Okta API provides integration capabilities for several security information and event management (SIEM) products, those solutions are generally focused on threat analysis and general monitoring.  There is often no substitute for building something yourself rather than relying on third-party, often expensive solutions that may require their own additional development or complex configuration.  Eliminate as many barriers as possible between your customer’s business information needs and the source data if you want to deliver real value.  
 
-A solution I recently built for a customer uses Okta system log API to fetch deprovisioning events during a given time range then joins the returned data with information from several different sources and delivers a formatted HTML report to the application owner’s email distribution group.  This solution has three components:
+A solution I recently built for a customer uses the Okta system log API to fetch deprovisioning events during a given time range then joins the returned data with information from several different sources and delivers a formatted HTML report to the application owner’s email distribution group.  This solution has three components:
 
 1. Monitor deprovisioning events for a particular application
 2. Enrich returned data with information from different data sources
@@ -67,4 +67,4 @@ library(tidyr)
   
   # Join the filtered records to get a tidy data set of just the app removal events per user
   au_rem_joined_data <- dplyr::left_join(app_uname_rem,uname_rem, by = "uKey")
-
+```
