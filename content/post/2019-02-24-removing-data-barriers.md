@@ -30,6 +30,8 @@ A solution I recently built for a customer uses the Okta system log API to fetch
 
 Once data is retrieved via the Okta API, it’s just a matter of a shaping and filtering then joining against other data sources, structuring a nice report table and sending the email.  In my case, I used the [htmlTable package](https://cran.r-project.org/web/packages/htmlTable/vignettes/tables.html) for the formatted report table and the [gmailr package](https://github.com/jimhester/gmailr) for sending email but there are many options in how you create and deliver this information.  This flexibility is what makes developing your own solutions the most powerful way to help your customers by removing barriers to information they need to succeed.
 
+This snippet illustrates just the first component leveraging the Okta system log API to get and shape the target data.  Endless possibilities (and fun!) await once you have the data!
+
 ```r
 library(httr)
 library(jsonlite)
