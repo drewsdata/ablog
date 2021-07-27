@@ -25,7 +25,7 @@ defaultContentLanguageInSubdir = false
 [params]
   name = "Drew Coughlin"
   role = "Data Analyst"
-  organization = "Atmos Technology Partners"
+  #organization = "Atmos Technology Partners"
   organization_url = ""
   avatar = "portrait.jpg"
   email = "drew.coughlin@gmail.com"
