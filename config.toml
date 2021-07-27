@@ -149,10 +149,10 @@ defaultContentLanguageInSubdir = false
     link = "//linkedin.com/in/drew-coughlin-92176a/"
     
 
-  [[params.social]]
-    icon = "google-plus"
-    icon_pack = "fa"
-    link = "https://plus.google.com/u/0/+DrewCoughlin"
+#  [[params.social]]
+#    icon = "google-plus"
+#    icon_pack = "fa"
+#    link = "https://plus.google.com/u/0/+DrewCoughlin"
 
 
 
