@@ -147,17 +147,8 @@ defaultContentLanguageInSubdir = false
     icon = "linkedin-square"
     icon_pack = "fa"
     link = "//linkedin.com/in/drew-coughlin-92176a/"
-    
 
-#  [[params.social]]
-#    icon = "google-plus"
-#    icon_pack = "fa"
-#    link = "https://plus.google.com/u/0/+DrewCoughlin"
-
-
-
-
-# Navigation Links
+## Navigation Links
 #   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
 #     desired widget in your `content/home/` folder.
 #   The weight parameter defines the order that the links will appear in.
